@@ -1,0 +1,10 @@
+Executable = worker.sh
+
+error = wdir/$(tag)/$(short)/$(Cluster).err.$(Process)
+log = wdir/$(tag)/$(short)/$(Cluster).log.$(Process)
+output = wdir/$(tag)/$(short)/$(Cluster).out.$(Process)
+
+arguments = $(gridpack) $(dataset) $(outdir) $(proxy)
+Initialdir = .
++MaxRuntime = 86400
+queue 1
