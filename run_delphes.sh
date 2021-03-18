@@ -3,7 +3,7 @@
 TAG='16Mar21'
 OUTDIR="/eos/user/a/aalbert/mc/delphes"
 
-GRIDPACK=$(readlink -e $(ls -1ctr *tar.gz | head -1))
+GRIDPACK=$(readlink -e $(ls -1ctr gridpack_delphes*.tgz | head -1))
 
 # Make proxy accessible from AFS home
 # This way the condor jobs can use it

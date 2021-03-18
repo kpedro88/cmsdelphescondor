@@ -22,7 +22,7 @@ popd
 
 
 tar xf "${GRIDPACK}"
-DELPHDIR=$(readlink -e "./Delphes*/")
+DELPHDIR=$(readlink -e ./Delphes*/)
 FILELIST=$(readlink -e "./files.txt")
 SHORT="$(echo ${DATASET} | sed 's|/Run.*||g;s|/||g')"
 
@@ -36,5 +36,4 @@ popd
 
 # Cleanup
 rm -r "${DELPHDIR}"
-rm "${GRIDPACK}"
 rm "${FILELIST}"
