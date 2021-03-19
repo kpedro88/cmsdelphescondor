@@ -1,8 +1,9 @@
 #!/bin/bash
 GRIDPACK=${1}
 DATASET=${2}
-OUTDIR=${3}
-PROXY=${4}
+SHORT=${3}
+OUTDIR=${4}
+PROXY=${5}
 set -x
 export X509_USER_PROXY="${PROXY}"
 
@@ -24,7 +25,6 @@ popd
 tar xf "${GRIDPACK}"
 DELPHDIR=$(readlink -e ./Delphes*/)
 FILELIST=$(readlink -e "./files.txt")
-SHORT="$(echo ${DATASET} | sed 's|/Run.*||g;s|/||g')"
 
 # Run and move output to target directory
 pushd "${DELPHDIR}"
