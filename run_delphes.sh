@@ -1,9 +1,14 @@
 
 # Configurable
-TAG='16Mar21'
+TAG='08May21'
 OUTDIR="/eos/user/a/aalbert/mc/delphes"
-
+LIST="${1}"
 GRIDPACK=$(readlink -e $(ls -1ctr gridpack_delphes*.tgz | head -1))
+
+if [[ ! -f $LIST ]]; then
+    echo "List file does not exist: $LIST"
+    exit 1
+fi
 
 # Make proxy accessible from AFS home
 # This way the condor jobs can use it
@@ -12,19 +17,21 @@ PROXY=${HOME}/$(basename ${PROXY_TMP})
 cp ${PROXY_TMP} ${PROXY}
 
 # Will submit jobs for all data sets in list
-for DATASET in $(cat datasets.txt); do
+for DATASET in $(cat ${LIST}); do
 
-    if [[ "$DATASET"=*"RunIIFall17" ]]; then 
+    if [[ "$DATASET" == *"RunIISummer16"* ]]; then
+        YEAR=2016
+    elif [[ "$DATASET" == *"RunIIFall17"* ]]; then
         YEAR=2017
-    elif [[ "$DATASET"=*"RunIIAutumn18" ]]; then
+    elif [[ "$DATASET" == *"RunIIAutumn18"* ]]; then
         YEAR=2018
-    else 
+    else
         echo "Are you sure your data set name is parsed correctly? Name: ${DATASET}"
         exit 1
     fi
 
     # Delphes need MiniAOD or bigger inputs
-    if [[ "$DATASET"=*"NANOAODSIM" ]]; then 
+    if [[ "$DATASET"=*"NANOAODSIM" ]]; then
         DATASET=$(dasgoclient --query="parent dataset=${DATASET}" | sed "s|[ \t]*$||g;s|^[ \t]*||g;")
         echo "Input is NANO, so I will run on parent dataset ${DATASET}"
     fi
