@@ -13,6 +13,7 @@ export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 wget http://cp3.irmp.ucl.ac.be/downloads/Delphes-3.4.2.tar.gz
 tar -zxf Delphes-3.4.2.tar.gz
 cd Delphes-3.4.2
+cp ../delphes_card_CMS.tcl cards
 sed -i '/^CXXFLAGS/ s/c++0x/c++17/' Makefile
 make -j 4
 

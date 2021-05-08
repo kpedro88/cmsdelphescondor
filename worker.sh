@@ -28,6 +28,7 @@ FILELIST=$(readlink -e "./files.txt")
 
 # Run and move output to target directory
 pushd "${DELPHDIR}"
+md5sum cards/delphes_card_CMS.tcl
 time ./DelphesCMSFWLite cards/delphes_card_CMS.tcl \
                         delphes_${SHORT}.root \
                         $(cat $FILELIST | sed 's|^|root://cms-xrd-global.cern.ch//|' | xargs)
