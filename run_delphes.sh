@@ -1,7 +1,7 @@
 
 # Configurable
 TAG='08May21'
-OUTDIR="/eos/user/a/aalbert/mc/delphes"
+OUTDIR="/eos/user/a/aalbert/mc/delphes/${TAG}"
 LIST="${1}"
 GRIDPACK=$(readlink -e $(ls -1ctr gridpack_delphes*.tgz | head -1))
 
