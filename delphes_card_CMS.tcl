@@ -288,6 +288,9 @@ module SimpleCalorimeter ECal {
   add EnergyFraction {1000025} {0.0}
   add EnergyFraction {1000035} {0.0}
   add EnergyFraction {1000045} {0.0}
+  add EnergyFraction {51} {0.0}
+  add EnergyFraction {52} {0.0}
+  add EnergyFraction {53} {0.0}
   # energy fractions for K0short and Lambda
   add EnergyFraction {310} {0.3}
   add EnergyFraction {3122} {0.3}
@@ -373,6 +376,9 @@ module SimpleCalorimeter HCal {
   add EnergyFraction {1000025} {0.0}
   add EnergyFraction {1000035} {0.0}
   add EnergyFraction {1000045} {0.0}
+  add EnergyFraction {51} {0.0}
+  add EnergyFraction {52} {0.0}
+  add EnergyFraction {53} {0.0}
   # energy fractions for K0short and Lambda
   add EnergyFraction {310} {0.7}
   add EnergyFraction {3122} {0.7}
@@ -595,6 +601,12 @@ module PdgCodeFilter NeutrinoFilter {
   add PdgCode {-12}
   add PdgCode {-14}
   add PdgCode {-16}
+  add PdgCode {51}
+  add PdgCode {52}
+  add PdgCode {53}
+  add PdgCode {-51}
+  add PdgCode {-52}
+  add PdgCode {-53}
 
 }
 
